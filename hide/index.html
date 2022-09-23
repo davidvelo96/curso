@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="MiPrimeraAPP">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="controller.js"></script>
+    <style>
+      .animated {
+        opacity: 1;
+        max-height: auto;
+        overflow: hidden;
+        transition: all 2s;
+      }
+      .animated.ng-hide {
+        opacity: 0;
+        max-height: 0px !important;
+        display: block !important;
+      }
+    </style>
+  </head>
+  <body ng-controller="PrimerController">
+    <!-- <div ng-hide="pos.length > 0">Cargando...</div> -->
+
+    <div ng-show="loading">Cargando...</div>
+    <div ng-show="!loading && pos.length <= 0">
+      No se encontraron resultados
+    </div>
+    <ul ng-show="pos.length > 0" class="animated">
+      <li ng-repeat="d in pos">
+        <h2>{{d.title}}</h2>
+        <p>{{d.body}}</p>
+      </li>
+    </ul>
+  </body>
+</html>

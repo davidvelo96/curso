@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html ng-app="primeraApp">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="controller.js"></script>
+  </head>
+  <body ng-controller="primerContr">
+    {{nombre}}
+    <p><strong>Padre: </strong>{{$parent.nombre}}</p>
+    <div ng-controller="childCont">
+      <p><strong>Hijo: </strong>{{nombre}}</p>
+      <input type="text" ng-model="$parent.nombre">
+    </div>
+  </body>
+</html>
